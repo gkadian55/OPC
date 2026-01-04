@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class F_Paintress_Gommage {
-    public static boolean isEvenPowerOf2(long number) {
-        int n = (int) (Math.log(number) / Math.log(2));
+    public static boolean isEvenPowerOf2(long num) {
+        int n = (int) (Math.log(num) / Math.log(2));
         if (n % 2 == 0) return true;
         return false;
     }
