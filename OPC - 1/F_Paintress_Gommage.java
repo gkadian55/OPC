@@ -1,11 +1,6 @@
 import java.util.*;
 
 public class F_Paintress_Gommage {
-    public static boolean isEvenPowerOf2(long num) {
-        int n = (int) (Math.log(num) / Math.log(2));
-        if (n % 2 == 0) return true;
-        return false;
-    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         StringBuilder sb = new StringBuilder("");
@@ -16,12 +11,16 @@ public class F_Paintress_Gommage {
             for (int i = 0; i < n; i++) {
                 values[i] = sc.nextInt();
             }
-            int count = 0;
-            for (int i = 0; i < n; i++) {
-                long product = 1;
-                for (int j = i; j < n; j++) {
-                    product *= values[j];
-                    if (isEvenPowerOf2(product)) count++;
+            int count = 0, even = 1, odd = 0, sum = 0;
+            for (int a : values) {
+                sum += a/2;
+                if (sum % 2 == 0) {
+                    count += even;
+                    even++;
+                }
+                else {
+                    count += odd;
+                    odd++;
                 }
             }
             sb.append(count).append("\n");
